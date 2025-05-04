@@ -36,7 +36,7 @@ terraform apply -auto-approve
 
 4. Wait a few minutes for the script to complete. You'll see a message similar to "Apply complete!" and then move to the next section.
 
-## Test reaching the application
+## Test reachability across the VPN
 
 To test control plane and data plane, add a VM in each VPC and firewall rules to allow at least icmp, then ping between the VMs. 
 
