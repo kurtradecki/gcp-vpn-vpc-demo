@@ -4,7 +4,7 @@
 
 ## Notes
 * The intent of this repo is to create a fixed environment for learning, demonstration, and proofs of concept (PoCs), **not production**.
-* The script sets the Google Cloud org policy constraints/iam.allowedPolicyMemberDomains to allow all at the project level, so the script may fail in highly regulated environments.
+* The script sets the Google Cloud org policy constraints/compute.restrictVpnPeerIPs to allow all at the project level, so the script may fail in highly regulated environments.
 * The actions taken by deploying this repo will add cost. To minimize costs, instructions are provided for how to teardown the demo environment. For more on cost, please refer to Google Cloud public pricing pages for components such as HA VPN and Data Transfer. 
 
 ## Setup instructions
