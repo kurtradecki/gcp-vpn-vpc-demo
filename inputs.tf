@@ -19,3 +19,15 @@ variable  project-id {}
 variable  region1 {}
 variable  vpc1name {}
 variable  vpc2name {}
+variable vpc1_cldrouter_config {
+  type = object({
+      all_subnets = bool
+      ip_ranges   = map(string)
+    })
+}
+variable vpc2_cldrouter_config {
+  type = object({
+      all_subnets = bool
+      ip_ranges   = map(string)
+    })
+}
