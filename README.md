@@ -13,7 +13,7 @@
 git clone https://github.com/kurtradecki/gcp-vpn-vpc-demo.git
 ```
 
-2. Ensure you have an active GCP account selected in the Cloud shell
+2. Ensure you have an active GCP account selected to run gcloud commands with [gcloud CLI](https://cloud.google.com/sdk/docs/install) (not needed in Cloud Shell).
 
 ```sh
 gcloud auth login
