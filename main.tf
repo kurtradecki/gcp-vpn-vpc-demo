@@ -12,8 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Future versions of the script may add modularity if it is needed, though the intent of the script is to be simple and have limited configurability.
-
 
 data "google_compute_network" "vpc1" {
   project = var.project-id
@@ -38,12 +36,14 @@ module "vpn-1" {
   router_config = {
     asn = 64514
     name = "cldrtr-${data.google_compute_network.vpc1.name}-${var.region1}-internal"
-    custom_advertise = {
+/*    custom_advertise = {
       all_subnets = true
       ip_ranges = {
         "10.0.0.0/8" = "default"
       }
     }
+*/
+    custom_advertise = var.vpc1_cldrouter_custom
   }
   tunnels = {
     remote-0 = {
@@ -80,6 +80,8 @@ module "vpn-2" {
       ip_ranges = {
       }
     }
+    custom_advertise = var.vpc2_cldrouter_custom
+
   }
   peer_gateways = {
     default = { gcp = module.vpn-1.self_link }
