@@ -4,7 +4,7 @@
 
 ## Notes
 * The intent of this repo is to create a fixed environment for learning, demonstration, and proofs of concept (PoCs), **not production**.
-* The script sets the Google Cloud org policy constraints/compute.restrictVpnPeerIPs to allow all at the project level, so the script may fail in highly regulated environments.
+* The script relies on the Google Cloud org policy constraints/compute.restrictVpnPeerIPs not restricting IPs at the project level, so the script may fail in highly regulated environments.
 * The actions taken by deploying this repo will add cost. To minimize costs, instructions are provided for how to teardown the demo environment. For more on cost, please refer to Google Cloud public pricing pages for components such as HA VPN and Data Transfer. 
 
 ## Setup instructions
@@ -27,9 +27,10 @@ gcloud auth application-default login
 To deploy the script, follow this process:
 1. Create a project in GCP, if not already created. Reference if needed [Creating and managing projects](https://cloud.google.com/resource-manager/docs/creating-managing-projects)
 2. Add 2 VPCs to the project, if not already created. Reference if needed [Create and manage VPC networks](https://cloud.google.com/vpc/docs/create-modify-vpc-networks)
-3. Rename example.tfvars to terraform.tfvars
-4. In terraform.tfvars, add the values for variables that need values (see the file for which). All other values can stay the same unless customization required. Reference if needed for how to find project ID, see [Find the project name, number, and ID](https://cloud.google.com/resource-manager/docs/creating-managing-projects#identifying_projects)
-5. At the command prompt where you'll run the script, in the Terraform directory, run:
+3. Set the Google Cloud org policy constraints/compute.restrictVpnPeerIPs to Allow All, if not already. Reference if needed [Creating and updating managed constraints](https://cloud.google.com/resource-manager/docs/organization-policy/using-constraints#creating_and_updating_managed_constraints)
+4. Rename example.tfvars to terraform.tfvars
+5. In terraform.tfvars, add the values for variables that need values (see the file for which). All other values can stay the same unless customization required. Reference if needed for how to find project ID, see [Find the project name, number, and ID](https://cloud.google.com/resource-manager/docs/creating-managing-projects#identifying_projects)
+6. At the command prompt where you'll run the script, in the Terraform directory, run:
 
 ```sh 
 terraform init
