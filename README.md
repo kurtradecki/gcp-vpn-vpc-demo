@@ -1,5 +1,7 @@
 # HA-VPN Between 2 VPCs
 
+![architecture](./vpn-vpc-architecture.jpg)
+
 ## Notes
 * The intent of this repo is to create a fixed environment for learning, demonstration, and proofs of concept (PoCs), **not production**.
 * The script sets the Google Cloud org policy constraints/iam.allowedPolicyMemberDomains to allow all at the project level, so the script may fail in highly regulated environments.
