@@ -12,10 +12,25 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Future versions of the script may add modularity if it is needed, though the intent of the script is to be simple and have limited configurability.
 
-
+# Add values for these 4 variables
   project-id = "ADD PROJECT ID HERE"
   region1 = "ADD REGION HERE"
   vpc1name = "ADD 1ST VPC NAME HERE"
   vpc2name = "ADD 2ND VPC NAME HERE"
+
+# Change below this line if you need to customize the routing
+  vpc1_cldrouter_custom = {
+    all_subnets = true  # change to false as needed
+    ip_ranges   = {
+      "10.0.0.0/8" = "10 range"  # add more as needed by adding a comman and then another "" = "" with values
+    }
+  }
+
+  vpc2_cldrouter_custom =  {
+    all_subnets = true  # change to false as needed
+    ip_ranges   = {
+      "172.16.0.0/12" = "172.16 range", 
+      "192.168.0.0/16" = "192.168 range"  # add more as needed by adding a comman and then another "" = "" with values
+    }
+  }
