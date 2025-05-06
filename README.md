@@ -1,6 +1,6 @@
 # HA-VPN Between 2 VPCs
 
-![architecture](./vpn-vpc-diagram.jpg)
+![architecture](./vpn-vpc-arch.jpg)
 
 ## Notes
 * The intent of this repo is to create a fixed environment for learning, demonstration, and proofs of concept (PoCs), **not production**.
