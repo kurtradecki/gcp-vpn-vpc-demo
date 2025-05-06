@@ -12,8 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Future versions of the script may add modularity if it is needed, though the intent of the script is to be simple and have limited configurability.
-
 
 data "google_compute_network" "vpc1" {
   project = var.project-id
