@@ -29,13 +29,15 @@ module "vpn-1" {
   project_id = var.project-id
   region     = var.region1
   network    = data.google_compute_network.vpc1.self_link
-  name       = "vpngw-${data.google_compute_network.vpc1.name}"
+#  name       = "vpngw-${data.google_compute_network.vpc1.name}"
+  name       = "vpngw-${data.google_compute_network.vpc1.name}-${data.google_compute_network.vpc2.name}"
   peer_gateways = {
     default = { gcp = module.vpn-2.self_link }
   }
   router_config = {
     asn = 64514
-    name = "cldrtr-${data.google_compute_network.vpc1.name}-${var.region1}-internal"
+#    name = "cldrtr-${data.google_compute_network.vpc1.name}-${var.region1}-internal"
+    name = "cldrtr-${data.google_compute_network.vpc1.name}-${data.google_compute_network.vpc2.name}-${var.region1}-internal"
 /*    custom_advertise = {
       all_subnets = true
       ip_ranges = {
@@ -71,10 +73,12 @@ module "vpn-2" {
   project_id = var.project-id
   region        = var.region1
   network    = data.google_compute_network.vpc2.self_link
-  name       = "vpngw-${data.google_compute_network.vpc2.name}"
+#  name       = "vpngw-${data.google_compute_network.vpc2.name}"
+  name       = "vpngw-${data.google_compute_network.vpc2.name}-${data.google_compute_network.vpc1.name}"
   router_config = { 
     asn = 64513 
-    name = "cldrtr-${data.google_compute_network.vpc2.name}-${var.region1}-internal"
+#    name = "cldrtr-${data.google_compute_network.vpc2.name}-${var.region1}-internal"
+    name = "cldrtr-${data.google_compute_network.vpc2.name}-${data.google_compute_network.vpc1.name}-${var.region1}-internal"
     custom_advertise = {
       all_subnets = true
       ip_ranges = {
