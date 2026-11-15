@@ -25,7 +25,7 @@ data "google_compute_network" "vpc2" {
 
 # VPNGW, tunnels and CR from vpc1 to vpc2
 module "vpn-1" {
-  source         = "github.com/terraform-google-modules/cloud-foundation-fabric//modules/net-vpn-ha?ref=v28.0.0"  
+  source         = "github.com/terraform-google-modules/cloud-foundation-fabric//modules/net-vpn-ha?ref=v36.0.0"  
   project_id = var.project-id
   region     = var.region1
   network    = data.google_compute_network.vpc1.self_link
@@ -69,7 +69,7 @@ module "vpn-1" {
 
 # VPNGW, tunnels and CR from vpc2 to vpc1
 module "vpn-2" {
-  source         = "github.com/terraform-google-modules/cloud-foundation-fabric//modules/net-vpn-ha?ref=v28.0.0"  
+  source         = "github.com/terraform-google-modules/cloud-foundation-fabric//modules/net-vpn-ha?ref=v36.0.0"  
   project_id = var.project-id
   region        = var.region1
   network    = data.google_compute_network.vpc2.self_link
